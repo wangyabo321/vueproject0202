@@ -1,10 +1,28 @@
 <template>
   <div class="home-wraper">
-    <div class="nav-left"><i class="iconfont icon-jiantou1"></i></div>
-    <div class="nav-content"><i class="iconfont icon-sousuo"></i><input type="search" placeholder="请输入搜索内容"></div>
-    <div class="nav-right">三亚 <i class="iconfont icon-jiantou"></i></div>
+<!--    第一部分导航部分-->
+    <div class="nav">
+      <div class="nav-left"><i class="iconfont icon-jiantou1"></i></div>
+      <div class="nav-content"><i class="iconfont icon-sousuo"></i><input type="search" placeholder="请输入搜索内容"></div>
+      <div class="nav-right">三亚 <i class="iconfont icon-jiantou"></i></div>
+    </div>
+<!--    第二部分轮播图-->
+    <div class="swiper-container">
+      <swiper :options="swiperOption" ref="mySwiper">
+        <!-- slides -->
+        <swiper-slide><img src="../assets/images/banner-images/banner1.jpg" alt=""></swiper-slide>
+        <swiper-slide><img src="../assets/images/banner-images/banner2.jpg" alt=""></swiper-slide>
+        <swiper-slide><img src="../assets/images/banner-images/banner3.jpg" alt=""></swiper-slide>
+        <swiper-slide><img src="../assets/images/banner-images/banner4.jpg" alt=""></swiper-slide>
+        <swiper-slide><img src="../assets/images/banner-images/banner5.png" alt=""></swiper-slide>
+        <!-- Optional controls -->
+        <div class="swiper-pagination"  slot="pagination"></div>
+      </swiper>
+    </div>
+<!--    第三部分字体图标列表-->
 
-<!--    <span class="iconfont icon-jiantou"></span>-->
+
+
   </div>
 </template>
 
@@ -14,7 +32,13 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      swiperOption: {
+        loop:true,
+        autoplay:true,
+        pagination: {
+          el: '.swiper-pagination',
+        },
+      }
     }
   }
 }
@@ -22,7 +46,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" scoped>
-  .home-wraper{
+  .swiper-container >>> .swiper-pagination-bullet-active{
+    background-color:#fff !important;
+  }
+  .nav{
     line-height:45px;
     width:100%;
     background:dodgerblue;
@@ -63,6 +90,11 @@ export default {
       .icon-jiantou{
         font-size:12px;
       }
+    }
+  }
+  .swiper-container{
+    img{
+      width:100%;
     }
   }
 </style>

@@ -3,14 +3,17 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
 
 
 // 01.引入初始化样式
 import './assets/styles/reset.css'
 //02.引入解决移动端1px边框问题样式
 import './assets/styles/border.css'
+//引入字体图标样式
 import  './assets/iconfont/iconfont.css'
-
+//引入swiper样式
+import '../node_modules/swiper/dist/css/swiper.css'
 
 //03.引入Fastclick解决移动端click事件300ms延迟
 import FastClick from 'fastclick'
@@ -18,6 +21,7 @@ import FastClick from 'fastclick'
 Vue.config.productionTip = false
 
 FastClick.attach(document.body);
+Vue.use(VueAwesomeSwiper);
 
 /* eslint-disable no-new */
 new Vue({
